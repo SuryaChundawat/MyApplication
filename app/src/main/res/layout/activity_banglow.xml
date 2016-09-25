@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="4"
+    android:padding="5dp"
+    >
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/text_agencyCodeBang"
+            android:layout_gravity="end"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorBlack"
+
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="  Front Left Cornor"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:gravity="center_vertical"
+            android:layout_weight="4"
+            android:id="@+id/Banglow_fr_lf_cr"
+            />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:id="@+id/getGpsBang_frLft"
+            android:background="@mipmap/gpsnew"
+
+            />
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name_frlf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorGray"
+                android:layout_weight=".5"
+                android:visibility="invisible"
+
+                >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edt_Bang_frLeftLattitude"
+                    android:hint="@string/hint_Banglow1"
+                    android:padding="5dp"
+                    android:visibility="invisible"
+
+                    />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_namefrlft"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/colorGray"
+                    android:layout_weight="2"
+                    android:visibility="invisible"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/edt_Bang_frLeftLongitude"
+                        android:hint="@string/hint_Banglow2"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+
+                        />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name3lrft"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/colorGray"
+                    android:layout_weight="2"
+                    android:visibility="invisible"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/edt_Bang_frLeftAltitude"
+                        android:hint="@string/hint_Banglow3"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+
+                        />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="  Front Right Cornor"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:layout_weight="4"
+
+                />
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:id="@+id/getGpsBang_frRgt"
+                android:background="@mipmap/gpsnew"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorGray"
+                android:layout_weight="4"
+                android:visibility="invisible"
+
+                >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edt_Bang_frRgttLattitude"
+                    android:hint="@string/hint_Banglow1"
+                    android:padding="5dp"
+                    android:visibility="invisible"
+
+                    />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/colorGray"
+                    android:layout_weight="4"
+                    android:visibility="invisible"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/edt_Bang_frRgttLongitude"
+                        android:hint="@string/hint_Banglow2"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+
+                        />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/colorGray"
+                    android:layout_weight="4"
+                    android:visibility="invisible"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/edt_Bang_frRgttAltitude"
+                        android:hint="@string/hint_Banglow3"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+
+                        />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="  Back Left Cornor"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_weight="4"
+
+                    />
+
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/getGpsBang_BkLfcr"
+                    android:background="@mipmap/gpsnew"
+                    />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_nameBkLfcr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorGray"
+                    android:layout_weight="4"
+                    android:visibility="invisible"
+
+                    >
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edt_Bang_BkLftLattitude"
+                        android:hint="@string/hint_Banglow1"
+                        android:padding="5dp"
+                        android:visibility="invisible"
+
+                        />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_weight="4"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+
+                    >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name2_BkLfcr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/colorGray"
+                        android:layout_weight="4"
+                        android:visibility="invisible"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/edt_Bang_BkLftLongitude"
+                            android:hint="@string/hint_Banglow2"
+                            android:padding="10dp"
+                            android:visibility="invisible"
+
+                            />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name3_BkLfcr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/colorGray"
+                        android:layout_weight="4"
+                        android:visibility="invisible"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/edt_Bang_BkLftAltitude"
+                            android:hint="@string/hint_Banglow3"
+                            android:padding="10dp"
+                            android:visibility="invisible"
+
+                            />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="  Back Right Cornor"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="4"
+
+                        />
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/getGpsBang_BkRgtcr"
+                        android:background="@mipmap/gpsnew"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+
+                    >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name1_BkRgtcr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorGray"
+                        android:layout_weight="4"
+                        android:visibility="invisible"
+
+                        >
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edt_Bang_BkRgtLattitude"
+                            android:hint="@string/hint_Banglow1"
+                            android:padding="5dp"
+                            android:visibility="invisible"
+
+                            />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_weight="4"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+
+                        >
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/input_layout_name2_BkRgtcr"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColorHint="@color/colorGray"
+                            android:layout_weight="4"
+                            android:visibility="invisible"
+                            >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/edt_Bang_BkRgtLongitude"
+                                android:hint="@string/hint_Banglow2"
+                                android:padding="10dp"
+                                android:visibility="invisible"
+
+                                />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/input_layout_name3_BkRgtcr"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColorHint="@color/colorGray"
+                            android:layout_weight="4"
+                            android:visibility="invisible"
+                            >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/edt_Bang_BkRgtAltitude"
+                                android:hint="@string/hint_Banglow3"
+                                android:padding="10dp"
+                                android:visibility="invisible"
+
+                                />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Banglow_sbmit"
+        android:background="@color/colorPrimary"
+        android:text="@string/btn_banglowSubmit"
+        android:textSize="18dp"
+        android:textColor="@color/colorWhite"
+
+
+        />
+
+
+
+    </LinearLayout>
+
+</ScrollView>

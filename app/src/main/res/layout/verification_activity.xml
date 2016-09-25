@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/newbg1"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:id="@+id/Ver_text"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_agencyCode"
+                android:layout_gravity="end"
+                android:textSize="15dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorWhite"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_UserName"
+                android:textSize="15dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorWhite"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_weight="2"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VERIFICATION"
+                android:id="@+id/btnverification"
+                android:textColor="#ffffff"
+                android:background="@color/colorPrimary"
+                android:layout_gravity="bottom"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:padding="12dp"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POST / UPLOAD DATA"
+                android:id="@+id/btnpostupload"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:drawableRight="@mipmap/upload"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_weight="3"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                android:layout_gravity="top"
+                android:id="@+id/btnlogout"
+                android:textColor="#ffffff"
+                android:background="@color/colorPrimary"
+                android:drawableRight="@mipmap/exit"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

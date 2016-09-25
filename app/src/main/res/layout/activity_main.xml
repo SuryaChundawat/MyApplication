@@ -1,0 +1,198 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/newbg1"
+    >
+
+   <!-- <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        >
+
+   <!-- <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            />
+    </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+               <!-- <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name"
+                    android:layout_width="300dp"
+
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#ffff"
+
+                    >-->
+
+                    <EditText
+                        android:id="@+id/editAgencycode"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="@string/hint_AgencyCode"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:drawableLeft="@mipmap/agency"
+                       />
+               <!-- </android.support.design.widget.TextInputLayout>-->
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#ffff"
+                    android:visibility="gone"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/editAgentPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_Pass"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                >
+
+                <Button android:id="@+id/btnlogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/btn_sign_up"
+                    android:background="#0000"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:drawableLeft="@mipmap/input2"
+
+
+                    />
+
+
+
+              <!--  <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signUp"
+                    android:layout_weight="2"
+                    android:text="@string/btn_SignUp"
+                    android:textColor="@color/colorWhite"
+                    android:background="#0000"
+                    android:textSize="12dp"
+                    />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="If you new Please   "
+                    android:textColor="@color/colorWhite"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:id="@+id/signUp"
+                    android:gravity="center_vertical"
+                    android:background="#0000"
+                    android:textColor="@color/colorWhite"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+

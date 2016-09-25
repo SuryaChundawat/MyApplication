@@ -1,0 +1,98 @@
+<resources>
+
+    <string name="app_name">My Application</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_form_no">Form No</string>
+    <string name="hint_Application_id">Name</string>
+    <string name="btn_sign_up"> LOGIN </string>
+    <string name="hint_id_no">Id Number</string>
+    <string name="hint_address1">Address 1</string>
+    <string name="hint_address2">Address 2</string>
+    <string name="hint_city">City Name</string>
+    <string name="hint_district">District Name</string>
+    <string name="hint_state">State</string>
+    <string name="hint_agent_code">Agent Code</string>
+    <string name="hint_submit">SUBMIT</string>
+
+
+    <!--//verification_next_activity-->
+    <string name="veri_hint_name">User Name</string>
+    <string name="veri_hint_password">Password</string>
+    <string name="veri_hint_usercode">User Code</string>
+    <string name="veri_btn">Upload/Post</string>
+
+    <!--//For Action Bar Name Set UP-->
+    <string name="fromactivity">Details Form</string>
+    <string name="Banglowactivity">Banglow</string>
+    <string name="Landactivity">Land</string>
+    <string name="Otheractivity">Other</string>
+    <string name="VerificationActivity">Verification</string>
+    <string name="VerificationNext">Verification Next</string>
+
+    <!--//For table layout-->
+    <string name="Tablecl1">Form No </string>
+    <string name="Tablecl2">Application No </string>
+    <string name="Tablecl3">Id No </string>
+    <string name="Tablecl4">Address1 </string>
+    <string name="Tablecl5">Address2 </string>
+    <string name="Tablecl6">City </string>
+    <string name="Tablecl7">State </string>
+    <string name="Tablecl8">Hello </string>
+
+
+    <!--<< For Then Banglow and Land>>>-->
+    <string name="hint_Banglow1">Lattitude</string>
+    <string name="hint_Banglow2">Longitude</string>
+    <string name="hint_Banglow3">Altitude</string>
+    <string name="btn_banglowSubmit">SUBMIT</string>
+
+    <string name="hint_Land">Lattitude</string>
+    <string name="hint_Land2">Longitude</string>
+    <string name="hint_Land3">Altitude</string>
+    <string name="btn_LandSubmit">SUBMIT</string>
+
+    <string name="hint_Other">Lattitude</string>
+    <string name="hint_Other2">Longitude</string>
+    <string name="hint_Other3">Altitude</string>
+    <string name="btn_OtherSubmit">SUBMIT</string>
+
+   <!-- <<<<For Login Activity>>>-->
+
+    <string name="hint_AgencyCode">Enter Agency Code</string>
+    <string name="hint_Pass">Enter Password</string>
+    <string name="btn_SignUp">VERIFIY AGENCY</string>
+    <string name="txt_SignIn"> OR </string>
+    <string name="your_string_here">Register<u>underline</u>.</string>
+
+    <!--<<For sign Up Activity>>>>-->
+    <string name="hint_signUp_AgencyCode">Enter Agency Code</string>
+    <string name="hint_signUp_Password">Enter Password</string>
+    <string name="hint_signUp_ConfrmPass">Confirm Password</string>
+    <string name="btn_signUp">SIGN UP</string>
+
+
+    <!--<<<User Verification>>>>>-->
+
+    <string name="ver_user_name">Enter Name</string>
+    <string name="ver_password">Password</string>
+    <string name="ver_age">Age</string>
+    <string name="ver_email">Email</string>
+    <string name="ver_confirm_password">Confirm Password</string>
+    <string name="ver_phone">Phone Number</string>
+    <string name="ver_btn">REGISTER USER</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

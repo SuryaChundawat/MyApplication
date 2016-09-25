@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/newbg1"
+    android:layout_alignParentBottom="true"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+
+        >
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffff"
+            android:layout_marginTop="180dp"
+
+
+            >
+
+            <EditText
+                android:id="@+id/editSignUpAgentCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_signUp_AgencyCode"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:layout_alignParentBottom="true"
+                android:drawableLeft="@mipmap/agency"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        >
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffff"
+
+            >
+
+            <EditText
+                android:id="@+id/editSignUpAgentPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_signUp_Password"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:drawableLeft="@mipmap/text"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+       <!-- <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffff"
+
+            >
+
+            <EditText
+                android:id="@+id/editSignUpConfmPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_signUp_ConfrmPass"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:drawableLeft="@mipmap/text"
+                />
+        </android.support.design.widget.TextInputLayout>-->
+
+        <Button android:id="@+id/btnSignUp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_SignUp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="60dp"
+            android:textSize="16dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/white"/>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
