@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chari.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
@@ -23,9 +24,19 @@
         </activity>
 
 
+       <!-- <service
+            android:name=".GPSTracker"
+            android:enabled="true"
+            android:exported="true" />-->
+
+
         <activity android:name=".Verificatio_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.activities.MainActivity" />
+
 
             </intent-filter>
         </activity>
@@ -36,6 +47,7 @@
 
             </intent-filter>
         </activity>
+
 
         <activity android:name=".verification_nextActivity">
             <intent-filter>
@@ -78,10 +90,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Flat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
-
+            </intent-filter>
+        </activity>
 
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -6,12 +6,15 @@ import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,36 @@ public class MainActivity extends AppCompatActivity {
     private CoordinatorLayout coordinatorLayout;
     private static final int blue = 0xff0000ff;
     public static String AgentCode;
+
+    final Handler mHandler = new Handler();
+
+    private String mResult;
+
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            Log.d("Inchoo tutorial", mResult);
+        }
+    };
+
+    protected void startTestThread() {
+        Thread t = new Thread() {
+            public void run() {
+
+                Intent intent = new Intent(MainActivity.this, Verificatio_activity.class);
+                startActivity(intent);
+
+
+
+                Log.d("Inchoo tutorial", "My thread is running");
+                mResult = "This is my new result";
+                mHandler.post(mUpdateResults);
+            }
+        };
+
+        t.start();
+    }
+
 
 
     @Override
@@ -57,10 +90,12 @@ public class MainActivity extends AppCompatActivity {
 
                     snackbar.show();*/
 
+                    startTestThread();
+
 
                     //Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, Verificatio_activity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(MainActivity.this, Verificatio_activity.class);
+                    //startActivity(intent);
                     finish();
 
 
@@ -70,15 +105,15 @@ public class MainActivity extends AppCompatActivity {
                 }else
                 {
 
-                    Snackbar snackbar = Snackbar
+                    /*Snackbar snackbar = Snackbar
                             .make(coordinatorLayout, "Agency Code does not match", Snackbar.LENGTH_LONG);
 
-                    MainActivity.info(snackbar).show();
+                    MainActivity.info(snackbar).show();*/
                    /* View snackbarView = snackbar.getView();
                     snackbarView.setBackgroundColor(Color.BLUE);*/
 
                    // snackbar.show();
-                    //Toast.makeText(MainActivity.this, "Agency Code does not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Agency Code does not match", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -131,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
-    private static Snackbar colorSnackBar(Snackbar snackbar, int colorId) {
+  /*  private static Snackbar colorSnackBar(Snackbar snackbar, int colorId) {
         View snackBarView = getSnackBarLayout(snackbar);
         if (snackBarView != null)
         {
@@ -140,11 +175,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return snackbar;
-    }
+    }*/
 
-    public static Snackbar info(Snackbar snackbar) {
+  /*  public static Snackbar info(Snackbar snackbar) {
         return colorSnackBar(snackbar, blue);
-    }
+    }*/
 
 
 

@@ -8,14 +8,16 @@ import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Chari on 7/17/2016.
@@ -28,6 +30,37 @@ public class Verificatio_activity extends AppCompatActivity {
     private TextView text_agencyCode,text_UserName;
     public static String GetAgentCodeMain;
     SQLController sqlcon;
+
+
+    final Handler mHandler = new Handler();
+
+    private String mResult;
+
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            Log.d("Inchoo tutorial", mResult);
+        }
+    };
+
+    protected void startTestThread()
+    {
+        Thread t = new Thread() {
+            public void run() {
+
+                Intent intent = new Intent(Verificatio_activity.this, verification_nextActivity.class);
+                startActivity(intent);
+
+
+
+                Log.d("Inchoo tutorial", "My thread is running");
+                mResult = "This is my new result";
+                mHandler.post(mUpdateResults);
+            }
+        };
+
+        t.start();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,6 +77,10 @@ public class Verificatio_activity extends AppCompatActivity {
         findView();
         Shap();
         SetText();
+
+        GetAgentCodeMain=User_Register.UserName;
+
+
 
 
 
@@ -69,8 +106,10 @@ public class Verificatio_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Verificatio_activity.this,verification_nextActivity.class);
-                startActivity(intent);
+                startTestThread();
+
+              /*  Intent intent = new Intent(Verificatio_activity.this,verification_nextActivity.class);
+                startActivity(intent);*/
                 finish();
 
                /* Toast.makeText(getApplicationContext(),"Data is Uploaded",Toast.LENGTH_SHORT).show();*/
@@ -91,9 +130,7 @@ public class Verificatio_activity extends AppCompatActivity {
                // Toast.makeText(getApplicationContext(),"LOgOut",Toast.LENGTH_SHORT).show();
                 finish();
 
-                Snackbar snackbar = Snackbar
-                        .make(view, "LOgOut ", Snackbar.LENGTH_LONG);
-                Login_Sign_Up_Activity.info(snackbar).show();
+                Toast.makeText(getApplicationContext(),"LogOut Successfully",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -102,15 +139,16 @@ public class Verificatio_activity extends AppCompatActivity {
     public void SetText()
     {
 
-        GetAgentCodeMain=MainActivity.AgentCode;
+        //GetAgentCodeMain=sqlcon.getUserName();
 
 
         Log.e("Responce fromm table",sqlcon.getResponceagency());
+        Log.e("Responce fromm table",sqlcon.getUserName());
 
 
 
-        text_agencyCode.setText("Agency   "+sqlcon.getResponceagency());
-        text_UserName.setText("User   "+GetAgentCodeMain);
+        text_agencyCode.setText("Agency :- "+sqlcon.getResponceagency());
+        text_UserName.setText("User :- "+sqlcon.getUserName());
 
 
     }
@@ -139,7 +177,7 @@ public class Verificatio_activity extends AppCompatActivity {
         shape.getPaint().setStyle(Paint.Style.STROKE);
         shape.getPaint().setStrokeWidth(9);
 
-        Ver_text.setBackground(shape);
+        //Ver_text.setBackground(shape);
 
 
 
@@ -151,6 +189,23 @@ public class Verificatio_activity extends AppCompatActivity {
         btnlogin.setBackground(shape2);*/
 
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        onBackPressed();
+        /*switch (item.getItemId())
+        {
+            case R.id.home:
+
+                Log.e("Backinside","Insideitscoming");
+                //NavUtils.navigateUpFromSameTask(this);
+
+                return true;
+        }*/
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

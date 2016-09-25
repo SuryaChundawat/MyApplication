@@ -1,6 +1,8 @@
 <resources>
 
-    <string name="app_name">My Application</string>
+    <string name="app_name">FOX peripheral</string>
+
+    <string name="newRegister"> First Users Please    </string>
 
     <string name="action_settings">Settings</string>
     <string name="hint_name">Name</string>
@@ -13,8 +15,12 @@
     <string name="hint_city">City Name</string>
     <string name="hint_district">District Name</string>
     <string name="hint_state">State</string>
-    <string name="hint_agent_code">Agent Code</string>
+    <string name="hint_agent_code">Agency Code</string>
     <string name="hint_submit">SUBMIT</string>
+
+
+    <!--<<<<<<<<<<userPasswordCross>>>>>>>>>>>>>-->
+    <string name="user_verifiedPass">Enter Password</string>
 
 
     <!--//verification_next_activity-->
@@ -23,13 +29,20 @@
     <string name="veri_hint_usercode">User Code</string>
     <string name="veri_btn">Upload/Post</string>
 
+    <!--<;For Flat-->
+    <string name="Flatctivity">Flat</string>
+    <string name="FlatNo">Enter Flor No</string>
+
     <!--//For Action Bar Name Set UP-->
     <string name="fromactivity">Details Form</string>
     <string name="Banglowactivity">Banglow</string>
     <string name="Landactivity">Land</string>
     <string name="Otheractivity">Other</string>
+    <string name="Plotactivity">Plot</string>
     <string name="VerificationActivity">Verification</string>
     <string name="VerificationNext">Verification Next</string>
+    <string name="UserRegister">User Register</string>
+    <string name="Sign_Up">New Register</string>
 
     <!--//For table layout-->
     <string name="Tablecl1">Form No </string>
@@ -76,6 +89,7 @@
     <!--<<<User Verification>>>>>-->
 
     <string name="ver_user_name">Enter Name</string>
+    <string name="ver_user_AgencyName">Enter Agency Name</string>
     <string name="ver_password">Password</string>
     <string name="ver_age">Age</string>
     <string name="ver_email">Email</string>
@@ -84,15 +98,63 @@
     <string name="ver_btn">REGISTER USER</string>
 
 
+    <string-array name="Test">
+    <item>Surya</item>
+    <item>Narayan</item>
+    <item>Singh</item>
+    <item>Chundawat</item>
+    </string-array>
 
 
 
 
-
-
-
-
-
-
+    <string-array name="FlorNo">
+        <item>Select Flor</item>
+        <item>-4</item>
+        <item>-3</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+    </string-array>
 
 </resources>

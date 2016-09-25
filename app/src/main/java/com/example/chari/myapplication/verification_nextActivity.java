@@ -1,19 +1,24 @@
 package com.example.chari.myapplication;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,6 +26,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Chari on 7/19/2016.
@@ -29,7 +35,7 @@ public class verification_nextActivity extends AppCompatActivity implements View
 
     private Button btn_post_veri;
     private EditText edtUserName, edtPassword, edtUserCode;
-     Editable GetAgencyCode1= MainActivity.editAgencycode.getText();
+    Editable GetAgencyCode1= MainActivity.editAgencycode.getText();
     private ActionBar mactionbar;
     String GetAgentcode;
     public static TableRow tableRow;
@@ -60,6 +66,13 @@ public class verification_nextActivity extends AppCompatActivity implements View
 
         new MyAsync().execute();
        /* CallMethode();*/
+
+    }
+
+
+    public verification_nextActivity()
+    {
+
 
     }
 
@@ -481,14 +494,89 @@ public class verification_nextActivity extends AppCompatActivity implements View
     }
 
 
+
+    private boolean haveNetworkConnection()
+    {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnectedWifi = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
+    }
+
+
     public void PostData(View view)
     {
+        final Dialog dialog = new Dialog(verification_nextActivity.this);
+        dialog.setContentView(R.layout.userdetailsverification);
+
+
+        final EditText editTextPassword = (EditText) dialog.findViewById(R.id.editTextPasswordToLogin);
+
+        Button btnSignIn = (Button) dialog.findViewById(R.id.buttonSignIn);
+
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // get The User name and Password
+                String password = editTextPassword.getText().toString();
+
+                // fetch the Password form database for respective user name
+                String storedPassword = sqlcon.Passwordupload(password);
+                Log.e("StorePassword is ",storedPassword);
+                if (password.equals(storedPassword))
+                {
+                    dialog.dismiss();
+                   if (haveNetworkConnection()==true)
+                    {
+                        new CommonServerSenderHelper(verification_nextActivity.this).FormDetailsPostTest();
+                        Toast.makeText(verification_nextActivity.this, "User Login Successfull", Toast.LENGTH_LONG).show();
+
+                        startActivity(new Intent(verification_nextActivity.this,Verificatio_activity.class));
+
+                    }else
+                    {
+
+                        AlertDialog alertbox = new AlertDialog.Builder(verification_nextActivity.this)
+                                .setMessage("Please Check Network")
+                                .setPositiveButton("OK", null)
+                                .show();
+
+                    }
+
+
+
+
+                } else
+                {
+                   Toast.makeText(verification_nextActivity.this, "User Password does not match", Toast.LENGTH_LONG).show();
+                }
+            }
+        }); dialog.show();
+
+
+        //sqlcon.Update_Deposit_Table_Details(sRow_Index);
+
+        //Toast.makeText(verification_nextActivity.this, "added successfully.", Toast.LENGTH_LONG).show();
 
         //Toast.makeText(getApplicationContext(), "Work Under Construction", Toast.LENGTH_SHORT).show();
 
-        Snackbar snackbar = Snackbar
-                .make(view, "Work Under Construction ", Snackbar.LENGTH_LONG);
-        Login_Sign_Up_Activity.info(snackbar).show();
+       /* Snackbar snackbar = Snackbar
+                .make(view, "added successfully. ", Snackbar.LENGTH_LONG);
+        Login_Sign_Up_Activity.info(snackbar).show();*/
+
+
+
+
     }
 
     public void findview()
@@ -503,10 +591,21 @@ public class verification_nextActivity extends AppCompatActivity implements View
 
 
 
+
+
+
+
     @Override
     public void onClick(View view)
     {
         PostData(view);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -535,5 +634,8 @@ public class verification_nextActivity extends AppCompatActivity implements View
                 .show();
 
     }
+
+
+
 
 }

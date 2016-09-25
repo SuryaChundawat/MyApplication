@@ -8,7 +8,8 @@ import android.util.Log;
 /**
  * Created by Chari on 7/24/2016.
  */
-public class DbHelper extends SQLiteOpenHelper
+public class
+DbHelper extends SQLiteOpenHelper
 {
 
    //DAta base Information
@@ -62,6 +63,7 @@ public class DbHelper extends SQLiteOpenHelper
 
        //column for geo tag lAND
     public static final String COLUMN_ID_GEO_LAND = "_id";
+    public static final String LOCAL_FORM_GEO_DETAILS_TABLE_GEO_ID = "all_geo_id";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTLAT = "front_left_lat";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTLONG= "front_left_long";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTALTI= "front_left_alt";
@@ -75,11 +77,13 @@ public class DbHelper extends SQLiteOpenHelper
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_BACKRIGHTLONG= "Back_right_long";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_BACKRIGHTALT= "Back_right_alt";
     public static final String LOCAL_FORM_DETAILS_TABLE_IMEI_NO_LAND = "moblie_imei_land";
+    public static final String LOCAL_FORM_DETAILS_TABLE_FLOR_NO = "flor_no";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_USERNASME ="username";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE_LAND_AGENCYCODE="agencycode";
 
      //column for geo tag BANGLOW
     public static final String COLUMN_ID_GEO_BANGLOW = "_id";
+    public static final String LOCAL_FORM_GEO_DETAILS_TABLE__GEOID = "geo_id";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTLAT = "front_left_lat";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTLONG= "front_left_long";
     public static final String LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTALTI= "front_left_alt";
@@ -99,19 +103,20 @@ public class DbHelper extends SQLiteOpenHelper
 
     //column id for form
     public static final String COLUMN_ID = "_id";
-    public static final String LOCAL_FORM_DETAILS_TABLE_APPLICATION_NO = "form_application_id";
-    public static final String LOCAL_FORM_DETAILS_TABLE_FORM_NO = "form_no";
-    public static final String LOCAL_FORM_DETAILS_TABLE_ID_PROOF = "form_id_proof";
-    public static final String LOCAL_FORM_DETAILS_TABLE_ID_NO = "form_table_id_no";
-    public static final String LOCAL_FORM_DETAILS_TABLE_PRODUCT_TYPE = "form_product_type";
-    public static final String LOCAL_FORM_DETAILS_TABLE_IS_PRTYPE = "form_flat_details";
+    public static final String LOCAL_FORM_DETAILS_TABLE_UNIQEKEY = "form_id";
+    public static final String LOCAL_FORM_DETAILS_TABLE_APPLICATION_NO = "ApplicationNo";
+    public static final String LOCAL_FORM_DETAILS_TABLE_FORM_NO = "CustomerName";
+    public static final String LOCAL_FORM_DETAILS_TABLE_ID_PROOF = "IDType";
+    public static final String LOCAL_FORM_DETAILS_TABLE_ID_NO = "IDNo";
+    public static final String LOCAL_FORM_DETAILS_TABLE_PRODUCT_TYPE = "Product";
+    public static final String LOCAL_FORM_DETAILS_TABLE_IS_PRTYPE = "PropertyType";
    /* public static final String LOCAL_FORM_DETAILS_TABLE_IS_LAND = "form_land_details";
     public static final String LOCAL_FORM_DETAILS_TABLE_IS_BANGLOW = "form_banglows_details";
     public static final String LOCAL_FORM_DETAILS_TABLE_IS_OTHER = "form_other_details";*/
-    public static final String LOCAL_FORM_DETAILS_TABLE_ADDRESS1 = "form_address1_details";
-    public static final String LOCAL_FORM_DETAILS_TABLE_ADDRESS2 = "form_address2_details";
-    public static final String LOCAL_FORM_DETAILS_TABLE_CITY = "form_city_details";
-    public static final String LOCAL_FORM_DETAILS_TABLE_DISTRICT = "form_district_details";
+    public static final String LOCAL_FORM_DETAILS_TABLE_ADDRESS1 = "Address1";
+    public static final String LOCAL_FORM_DETAILS_TABLE_ADDRESS2 = "Address2";
+    public static final String LOCAL_FORM_DETAILS_TABLE_CITY = "City";
+    public static final String LOCAL_FORM_DETAILS_TABLE_DISTRICT = "State";
    /* public static final String LOCAL_FORM_DETAILS_TABLE_STATE = "form_state_details";*/
    /* public static final String LOCAL_FORM_DETAILS_TABLE_AGENTCODE = "form_agentcode_details";*/
 
@@ -153,7 +158,8 @@ public class DbHelper extends SQLiteOpenHelper
 
      private static String CREATE_TABLE_GEOTAG_LAND_DETAILS = "CREATE TABLE " +FORM_TABLE_GEOTAG_LAND_DETAILS
          +"(" +COLUMN_ID_GEO_LAND+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-         +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTLAT+
+         +LOCAL_FORM_GEO_DETAILS_TABLE_GEO_ID+
+         " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTLAT+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTLONG+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTLEFTALTI+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_FRNTRIGHTLAT+
@@ -165,10 +171,12 @@ public class DbHelper extends SQLiteOpenHelper
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_BACKRIGHTLAT+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_BACKRIGHTLONG+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_BACKRIGHTALT+
+         " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_FLOR_NO+
          " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_IMEI_NO_LAND+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_USERNASME+
          " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE_LAND_AGENCYCODE+
          " TEXT NOT NULL);";
+
 
        private static String CREATE_TABLE_GEOTAG_OTHER_DETAILS = "CREATE TABLE " +FORM_TABLE_GEOTAG_OTHER_DETAILS
          +"(" +COLUMN_ID_GEO_OTHER+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -193,7 +201,8 @@ public class DbHelper extends SQLiteOpenHelper
 
       private static String CREATE_TABLE_GEOTAG_BANGLOW_DETAILS = "CREATE TABLE " +FORM_TABLE_GEOTAG_BANGLOW_DETAILS
             +"(" +COLUMN_ID_GEO_BANGLOW+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTLAT+
+            +LOCAL_FORM_GEO_DETAILS_TABLE__GEOID+
+            " TEXT NOT NULL , "+LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTLAT+
             " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTLONG+
             " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTLEFTALTI+
             " TEXT NOT NULL , " +LOCAL_FORM_GEO_DETAILS_TABLE__BANGLOW_FRNTRIGHTLAT+
@@ -213,7 +222,8 @@ public class DbHelper extends SQLiteOpenHelper
 
      private static String CREATE_TABLE_FORM_DETAILS = "CREATE TABLE " +FORM_TABLE_DETAILS
              +"(" +COLUMN_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +LOCAL_FORM_DETAILS_TABLE_APPLICATION_NO+
+             +LOCAL_FORM_DETAILS_TABLE_UNIQEKEY+
+            " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_APPLICATION_NO+
             " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_FORM_NO+
             " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_ID_PROOF+
             " TEXT NOT NULL , " +LOCAL_FORM_DETAILS_TABLE_ID_NO+
@@ -282,6 +292,8 @@ public class DbHelper extends SQLiteOpenHelper
         Log.e("DataBase table","Create Successfully");
 
     }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.android.volley.toolbox.Volley;
 import com.example.chari.myapplication.DbHelper;
 
 /**
@@ -14,8 +13,10 @@ import com.example.chari.myapplication.DbHelper;
 public class AppController extends Application
 {
     public static final String TAG = AppController.class.getSimpleName();
-    private com.android.volley.RequestQueue mRequestQueue;
+
+   // private com.android.volley.RequestQueue mRequestQueue;
     private static DbHelper dbHelper_ref;
+
     private static AppController mInstance;
 
     @Override
@@ -23,11 +24,10 @@ public class AppController extends Application
         super.onCreate();
         mInstance = this;
         dbHelper_ref = new DbHelper(getApplicationContext());
-
     }
 
-    public boolean haveNetworkConnection()
-    {
+
+    public boolean haveNetworkConnection() {
         boolean haveConnectedWifi = false;
         boolean haveConnectedMobile = false;
 
@@ -44,19 +44,38 @@ public class AppController extends Application
         return haveConnectedWifi || haveConnectedMobile;
     }
 
-    public static synchronized DbHelper getDatabaseInstance(){ return dbHelper_ref; }
+
+    public static synchronized DbHelper getDatabaseInstance()
+    {
+        return dbHelper_ref;
+    }
 
     public static synchronized AppController getInstance() {
         return mInstance;
     }
-    public com.android.volley.RequestQueue getRequestQueue() {
+
+  /*  public com.android.volley.RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue= Volley.newRequestQueue(getApplicationContext());
-            //mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
         return mRequestQueue;
     }
+*/
+  /*  public <T> void addToRequestQueue(Request<T> req, String tag) {
+        req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
+        getRequestQueue().add(req);
+    }
 
+    public <T> void addToRequestQueue(Request<T> req) {
+        req.setTag(TAG);
+        getRequestQueue().add(req);
+    }
+
+    public void cancelPendingRequests(Object tag) {
+        if (mRequestQueue != null) {
+            mRequestQueue.cancelAll(tag);
+        }
+    }*/
 
 }

@@ -5,14 +5,19 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +37,24 @@ public class BanglowActivity extends AppCompatActivity
     Double latitude,longitude,altitude;
     private GPSTracker gps;
     SQLController sqlcon;
-    private TextView text_agencyCodeBang,Banglow_fr_rg_cr,Banglow_Bk_lf_cr,Banglow_Bk_Ri_cr;
+    private TextView text_agencyCodeBang,text_UserNameBang,Banglow_Bk_lf_cr,Banglow_Bk_Ri_cr;
     private ProgressDialog PD;
     private String GetAgentCodeMain;
     private String ImEINo;
+
+    final Handler mHandler = new Handler();
+
+    private String mResult;
+
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            Log.d("Inchoo tutorial", mResult);
+        }
+    };
+
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -45,13 +64,16 @@ public class BanglowActivity extends AppCompatActivity
 
         sqlcon = new SQLController(this);
 
-        GetAgentCodeMain=MainActivity.AgentCode;
+        GetAgentCodeMain=sqlcon.getUserName();
 
         findviewId();
         IMEI();
 
-        GetAgentCodeMain=MainActivity.AgentCode;
-        text_agencyCodeBang.setText("WellCome to Agency "+GetAgentCodeMain);
+        SetText();
+        //Shap();
+
+        ///GetAgentCodeMain=MainActivity.AgentCode;
+        //text_agencyCodeBang.setText("WellCome to Agency "+GetAgentCodeMain);
 
 
         mactionbar = getSupportActionBar();
@@ -71,7 +93,14 @@ public class BanglowActivity extends AppCompatActivity
 
 
 
-                Gpsfind();
+
+                        Gpsfind();
+
+
+
+
+
+
 
                 edt_Bang_frLeftLattitude.setText(latitude.toString());
                 edt_Bang_frLeftLongitude.setText(longitude.toString());
@@ -92,7 +121,9 @@ public class BanglowActivity extends AppCompatActivity
                 String sleepTime = "1";
                 runner.execute(sleepTime);
 
-                Gpsfind();
+
+                        Gpsfind();
+
 
                 edt_Bang_frRgttLattitude.setText(latitude.toString());
                 edt_Bang_frRgttLongitude.setText(longitude.toString());
@@ -115,7 +146,10 @@ public class BanglowActivity extends AppCompatActivity
                 String sleepTime = "1";
                 runner.execute(sleepTime);
 
-                Gpsfind();
+
+
+                        Gpsfind();
+
 
                 edt_Bang_BkLftLattitude.setText(latitude.toString());
                 edt_Bang_BkLftLongitude.setText(longitude.toString());
@@ -136,7 +170,11 @@ public class BanglowActivity extends AppCompatActivity
                 String sleepTime = "1";
                 runner.execute(sleepTime);
 
-                Gpsfind();
+
+
+                        Gpsfind();
+
+
 
                 edt_Bang_BkRgtLattitude.setText(latitude.toString());
                 edt_Bang_BkRgtLongitude.setText(longitude.toString());
@@ -151,24 +189,45 @@ public class BanglowActivity extends AppCompatActivity
             }
         });
 
-        btn_Banglow_sbmit.setOnClickListener(new View.OnClickListener() {
+        btn_Banglow_sbmit.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
 
                 insertDataBanglow();
 
-                Intent i = new Intent(BanglowActivity.this,Verificatio_activity.class);
-                startActivity(i);
+                Thread t = new Thread() {
+                    public void run() {
+
+                        Intent i = new Intent(BanglowActivity.this,Verificatio_activity.class);
+                        startActivity(i);
+                        Log.d("Inchoo tutorial", "My thread is running");
+                        mResult = "This is my new result";
+                        mHandler.post(mUpdateResults);
+                    }
+                };
+
+                t.start();
+
+
+
                 finish();
 
-                Snackbar snackbar = Snackbar
-                        .make(view, "Submit SuccessFull", Snackbar.LENGTH_LONG);
-                Login_Sign_Up_Activity.info(snackbar).show();
+                Toast.makeText(getApplicationContext(),"Submit SuccessFull",Toast.LENGTH_SHORT).show();
             }
         });
 
 
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -186,12 +245,13 @@ public class BanglowActivity extends AppCompatActivity
          String backrightlat= edt_Bang_BkRgtLattitude.getText().toString();
          String backrightlong =edt_Bang_BkRgtLongitude.getText().toString();
          String backrightalt= edt_Bang_BkRgtAltitude.getText().toString();
+         String florno="";
          String imeino =ImEINo ;
-         String username="XZB";
-         String agencycode=GetAgentCodeMain;
+         String username=GetAgentCodeMain;
+         String agencycode=sqlcon.getResponceagency();
 
          sqlcon.open();
-         sqlcon.insertDataBanglow(frntleftlat, frntleftlong, frntleftalt, frntrightlat, frntrightlong, frntrightalt, backleftlat, backleftlong, backleftalt, backrightlat, backrightlong, backrightalt, imeino, username, agencycode);
+         sqlcon.insertDataLand(frntleftlat, frntleftlong, frntleftalt, frntrightlat, frntrightlong, frntrightalt, backleftlat, backleftlong, backleftalt, backrightlat, backrightlong, backrightalt, florno, imeino, username, agencycode);
 
 
 
@@ -204,7 +264,7 @@ public class BanglowActivity extends AppCompatActivity
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         ImEINo = tm.getDeviceId();
         Log.e("Imei no is ",ImEINo);
-        Toast.makeText(getApplicationContext(),"Your ImEI No IS :"+ ImEINo,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(),"Your ImEI No IS :"+ ImEINo,Toast.LENGTH_LONG).show();
 
         return ImEINo;
     }
@@ -279,6 +339,33 @@ public class BanglowActivity extends AppCompatActivity
 
     }
 
+    public void SetText()
+    {
+
+        GetAgentCodeMain = sqlcon.getUserName();
+
+
+        Log.e("Responce fromm table", sqlcon.getResponceagency());
+        Log.e("Responce fromm table", sqlcon.getUserName());
+
+        text_agencyCodeBang.setText("Agency :-" + sqlcon.getResponceagency());
+        text_UserNameBang.setText("User :-" + sqlcon.getUserName());
+    }
+
+    public void Shap() {
+
+
+        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+        shape.getPaint().setColor(Color.BLUE);
+        shape.getPaint().setStyle(Paint.Style.STROKE);
+        shape.getPaint().setStrokeWidth(9);
+
+        text_agencyCodeBang.setBackground(shape);
+
+
+
+    }
+
 
 
 
@@ -320,9 +407,19 @@ public class BanglowActivity extends AppCompatActivity
 
         //TextView
         text_agencyCodeBang=(TextView)findViewById(R.id. text_agencyCodeBang);
+        text_UserNameBang=(TextView)findViewById(R.id. text_UserNameBang);
        /* Banglow_fr_rg_cr=(TextView)findViewById(R.id. Banglow_fr_rg_cr);
         Banglow_Bk_lf_cr=(TextView)findViewById(R.id. Banglow_Bk_lf_cr);
         Banglow_Bk_Ri_cr=(TextView)findViewById(R.id. Banglow_Bk_Ri_cr);*/
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        onBackPressed();
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

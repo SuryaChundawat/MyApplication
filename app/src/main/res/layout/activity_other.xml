@@ -5,35 +5,59 @@ android:orientation="horizontal"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:layout_weight="4"
-android:padding="8dp"
     >
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
 
 
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/text_agencyCodeOther"
-        android:layout_gravity="end"
-        android:textSize="15dp"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/colorBlack"
 
-        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:id="@+id/text_agencyCodeOther"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
+            android:layout_weight="1"
+            android:textColor="@color/colorWhite"
+
+            />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="15dp"
+            android:id="@+id/text_UserNameOther"
+            android:layout_weight="1"
+            android:textSize="10dp"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:textColor="@color/colorWhite"
+            />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
         >
 
         <TextView
@@ -179,6 +203,7 @@ android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
 
             >
 
@@ -317,6 +342,7 @@ android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
 
             >
 
@@ -461,6 +487,7 @@ android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
 
             >
 
@@ -589,16 +616,27 @@ android:padding="8dp"
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_Other_sbmit"
-        android:background="@color/colorPrimary"
-        android:text="@string/btn_banglowSubmit"
-        android:padding="10dp"
-        android:textSize="18dp"
-        android:textColor="@color/colorWhite"
-        />
+        android:padding="7dp"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_Other_sbmit"
+            android:background="@color/colorPrimary"
+            android:text="@string/btn_banglowSubmit"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            />
+
+
+    </LinearLayout>
+
+
 
 
 

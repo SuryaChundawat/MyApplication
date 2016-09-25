@@ -5,14 +5,19 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,13 +34,25 @@ public class LandActivity extends AppCompatActivity
     EditText edt_Land_frLeftLattitude,edt_Land_frLeftLongitude,edt_Land_frLeftAltitude,edt_Land_frRgttLattitude,edt_Land_frRgttLongitude,edt_Land_frRgttAltitude,edt_Land_BkLftLattitude,edt_Land_BkLftLongitude,edt_Land_BkLftAltitude,edt_Land_BkRgtAltitude,edt_Land_BkRgtLongitude,edt_Land_BkRgtLattitude;
     ImageButton getGpsLand_frLft,getGpsLand_frRgt,getGpsLand_BkLfcr,getGpsLand_BkRgtcr;
     Button btn_Land_sbmit;
-    TextView text_agencyCodeLand,Land_fr_rg_cr,Land_Bk_lf_cr,Land_Bk_Ri_cr;
+    TextView text_agencyCodeLand,text_UserNameLand,Land_Bk_lf_cr,Land_Bk_Ri_cr;
     Double latitude,longitude,altitude;
     private GPSTracker gps;
     SQLController sqlcon;
     private ProgressDialog PD;
     private String GetAgentCodeMain;
     private String ImEINo;
+
+
+    final Handler mHandler = new Handler();
+
+    private String mResult;
+
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            Log.d("Inchoo tutorial", mResult);
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -47,9 +64,11 @@ public class LandActivity extends AppCompatActivity
 
         findview();
         IMEI();
+        SetText();
+        //Shap();
 
-        GetAgentCodeMain=MainActivity.AgentCode;
-        text_agencyCodeLand.setText("Wellcome To Agency "+GetAgentCodeMain);
+        GetAgentCodeMain=sqlcon.getUserName();
+        //text_agencyCodeLand.setText("Wellcome To Agency "+GetAgentCodeMain);
 
 
         mactionbar = getSupportActionBar();
@@ -141,13 +160,28 @@ public class LandActivity extends AppCompatActivity
             {
 
                 insertDataLand();
-                Intent i = new Intent(LandActivity.this,Verificatio_activity.class);
-                startActivity(i);
-                finish();
 
-                Snackbar snackbar = Snackbar
+                Thread t = new Thread() {
+                    public void run() {
+
+                        Intent i = new Intent(LandActivity.this,Verificatio_activity.class);
+                        startActivity(i);
+                        Log.d("Inchoo tutorial", "My thread is running");
+                        mResult = "This is my new result";
+                        mHandler.post(mUpdateResults);
+                    }
+                };
+
+                t.start();
+
+               /* Intent i = new Intent(LandActivity.this,Verificatio_activity.class);
+                startActivity(i);*/
+                finish();
+                Toast.makeText(getApplicationContext(),"Submit Successfully",Toast.LENGTH_SHORT).show();
+
+               /* Snackbar snackbar = Snackbar
                         .make(view, "Submit SuccessFull", Snackbar.LENGTH_LONG);
-                Login_Sign_Up_Activity.info(snackbar).show();
+                Login_Sign_Up_Activity.info(snackbar).show();*/
             }
         });
 
@@ -164,7 +198,7 @@ public class LandActivity extends AppCompatActivity
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         ImEINo = tm.getDeviceId();
         Log.e("Imei no is ",ImEINo);
-        Toast.makeText(getApplicationContext(),"Your ImEI No IS :"+ ImEINo,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(),"Your ImEI No IS :"+ ImEINo,Toast.LENGTH_LONG).show();
 
         return ImEINo;
     }
@@ -184,13 +218,14 @@ public class LandActivity extends AppCompatActivity
         String backrightlat= edt_Land_BkRgtLattitude.getText().toString();
         String backrightlong =edt_Land_BkRgtLongitude.getText().toString();
         String backrightalt= edt_Land_BkRgtAltitude.getText().toString();
+        String florno="";
         String imeino =ImEINo ;
         String username =GetAgentCodeMain;
-        String agencycode ="XYZ";
+        String agencycode =sqlcon.getResponceagency();
 
 
         sqlcon.open();
-        sqlcon.insertDataLand(frntleftlat, frntleftlong, frntleftalt, frntrightlat, frntrightlong, frntrightalt, backleftlat, backleftlong, backleftalt, backrightlat, backrightlong, backrightalt, imeino, username, agencycode);
+        sqlcon.insertDataLand(frntleftlat, frntleftlong, frntleftalt, frntrightlat, frntrightlong, frntrightalt, backleftlat, backleftlong, backleftalt, backrightlat, backrightlong, backrightalt, florno, imeino, username, agencycode);
 
 
 
@@ -279,6 +314,32 @@ public class LandActivity extends AppCompatActivity
 
     }
 
+    public void SetText()
+    {
+
+        GetAgentCodeMain = sqlcon.getUserName();
+
+
+        Log.e("Responce fromm table", sqlcon.getResponceagency());
+
+        text_agencyCodeLand.setText("Agency :-" + sqlcon.getResponceagency());
+        text_UserNameLand.setText("User :-" + sqlcon.getUserName());
+    }
+
+    public void Shap() {
+
+
+        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+        shape.getPaint().setColor(Color.BLUE);
+        shape.getPaint().setStyle(Paint.Style.STROKE);
+        shape.getPaint().setStrokeWidth(9);
+
+        text_agencyCodeLand.setBackground(shape);
+
+
+
+    }
+
 
 
     public void findview()
@@ -316,12 +377,19 @@ public class LandActivity extends AppCompatActivity
 
         //TextView
         text_agencyCodeLand=(TextView)findViewById(R.id.text_agencyCodeLand);
-        /*Land_fr_rg_cr=(TextView)findViewById(R.id.Land_fr_rg_cr);
-        Land_Bk_lf_cr=(TextView)findViewById(R.id.Land_Bk_lf_cr);
+        text_UserNameLand=(TextView)findViewById(R.id.text_UserNameLand);
+        /*Land_Bk_lf_cr=(TextView)findViewById(R.id.Land_Bk_lf_cr);
         Land_Bk_Ri_cr=(TextView)findViewById(R.id.Land_Bk_Ri_cr);*/
 
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

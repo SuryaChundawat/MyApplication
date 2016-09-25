@@ -13,28 +13,50 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1"
         android:orientation="vertical"
-        android:padding="8dp"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/text_agencyCodeForm"
-            android:layout_gravity="end"
-            android:textSize="15dp"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/colorBlack"
 
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/text_agencyCodeForm"
+                android:gravity="center_vertical"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorWhite"
+
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="15dp"
+                android:id="@+id/text_UserNameForm"
+                android:layout_weight="1"
+                android:textSize="10dp"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:textColor="@color/colorWhite"
+                />
+
+        </LinearLayout>
+
+
 
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="2dp"
                 >
 
@@ -55,7 +77,7 @@
             android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColorHint="@color/colorGray"
+            android:textColorHint="@color/colorPrimary"
             android:layout_marginTop="4dp"
             >
 
@@ -89,7 +111,7 @@
             android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorGray"
+            android:textColorHint="@color/colorPrimary"
             >
 
         <EditText
@@ -136,12 +158,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Flat"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
 
 
                     />
 
-                <EditText
+               <!-- <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/editFlatNu"
@@ -150,7 +173,7 @@
                     android:textSize="11dp"
                     android:maxLength="12"
                     android:visibility="gone"
-                    />
+                    />-->
 
 
 
@@ -171,6 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Land"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
 
                     />
@@ -185,6 +209,54 @@
 
         </LinearLayout>
 
+
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lay_florNo"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_weight="2"
+
+            >
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorGray"
+                android:layout_weight="0.5"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editFlatNu"
+                    android:maxLength="12"
+                    android:hint="@string/FlatNo"
+                    android:padding="5dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:id="@+id/SpinFlorNo"
+                >
+
+            </Spinner>
+
+
+
+
+
+
+
+        </LinearLayout>
+-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -214,6 +286,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Banglow"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
 
                 />
@@ -238,6 +311,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Other"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
 
                 />
@@ -250,6 +324,34 @@
 
 
     </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chk_plot"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plot"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+
+                />
+
+
+
+
+
+        </LinearLayout>
 
 
 
@@ -287,7 +389,7 @@
                 android:id="@+id/input_layout_name_add1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -308,7 +410,7 @@
                 android:id="@+id/input_layout_name_add2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -327,7 +429,7 @@
                 android:id="@+id/input_layout_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -346,7 +448,7 @@
                 android:id="@+id/input_layout_dist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -366,7 +468,7 @@
                 android:id="@+id/input_layout_state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -386,7 +488,7 @@
                 android:id="@+id/input_layout_agcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorGray"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_marginTop="4dp"
                 >
 
@@ -411,7 +513,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SUBMIT"
+            android:text="Next"
             android:id="@+id/btn_form_sub"
             android:textSize="18dp"
             android:textColor="#ffffff"

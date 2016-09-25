@@ -14,64 +14,54 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-       <!-- <android.support.design.widget.TextInputLayout
-            android:id="@+id/ver_lay1"
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:hint="@string/ver_user_AgencyName"
+            android:id="@+id/Txt_UserAgencyName"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            />
+
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:layout_marginTop="10dp"
-            >-->
+            android:textColorHint="@color/colorPrimary"
+            >
 
               <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="@string/ver_user_name"
-                android:layout_marginTop="5dp"
                 android:id="@+id/edit_UserName"
                 android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="5dp"
                 />
 
-       <!-- </android.support.design.widget.TextInputLayout>-->
+        </android.support.design.widget.TextInputLayout>
 
-       <!-- <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:id="@+id/ver_lay2"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:layout_marginTop="4dp"
-            >-->
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="@string/ver_password"
-            android:layout_marginTop="5dp"
-            android:id="@+id/edit_UserPassword"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="5dp"
-            />
 
-       <!-- </android.support.design.widget.TextInputLayout>-->
-
-       <!-- <android.support.design.widget.TextInputLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ver_lay3"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:layout_marginTop="4dp"
-            >-->
+            android:textColorHint="@color/colorPrimary"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="@string/ver_email"
+                android:id="@+id/edit_UserEmail"
+                android:textColor="@android:color/black"
+                />
 
 
 
-       <!-- </android.support.design.widget.TextInputLayout>-->
+        </android.support.design.widget.TextInputLayout>
 
        <!-- <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -82,77 +72,78 @@
             android:layout_marginTop="4dp"
             >-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="@string/ver_email"
-                android:layout_marginTop="5dp"
-                android:id="@+id/edit_UserEmail"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="5dp"
-                />
+
 
        <!-- </android.support.design.widget.TextInputLayout>-->
 
-       <!-- <android.support.design.widget.TextInputLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ver_lay5"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:layout_marginTop="2dp"
-            >-->
+            android:textColorHint="@color/colorPrimary"
+            >
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="@string/ver_age"
-                android:layout_marginTop="5dp"
                 android:id="@+id/edit_UserAge"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="5dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
                 />
 
-       <!-- </android.support.design.widget.TextInputLayout>-->
+        </android.support.design.widget.TextInputLayout>
 
-       <!-- <android.support.design.widget.TextInputLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ver_lay6"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:layout_marginTop="2dp"
-            >-->
+            android:textColorHint="@color/colorPrimary"
+            >
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="@string/ver_phone"
-                android:layout_marginTop="5dp"
                 android:id="@+id/edit_UserPhoneNo"
-                android:padding="5dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:fontFamily="sans-serif-condensed"
                 />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimary"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="@string/ver_password"
+                android:id="@+id/edit_UserPassword"
+                android:textColor="@android:color/black"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_agcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimary"
+            >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="@string/ver_confirm_password"
-            android:layout_marginTop="5dp"
             android:id="@+id/edit_UserConfPassword"
-            android:padding="5dp"
+            android:hint="@string/ver_confirm_password"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:fontFamily="sans-serif-condensed"
             />
 
-       <!-- </android.support.design.widget.TextInputLayout>-->
+        </android.support.design.widget.TextInputLayout>
 
 
         <Button
